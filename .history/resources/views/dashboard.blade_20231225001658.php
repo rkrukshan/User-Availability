@@ -21,11 +21,9 @@
                 <tr class="border-b border-grey-200 hove:bg-grey-100">
                     <td class="py-3 px-6">{{ $user->name }}</td>
                     <td class="py-3 px-6">{{ $user->email }}</td>
-                    <td class="py-3 px-6">{{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
-                    <td class="py-3 px-6 text-center">
-                    <span class="bg-{{ $user->last_seen >= now()->subMinutes(2)?'green':'red'}}-500 text-black py-1 px-3 rounded-full text-lg">
-                        {{ $user->last_seen >= now()->subMinutes(2) ?'online':'offline' }}
-                    </td>
+                    <td class="py-3 px-6">{{ carbon\carbon::parse($user->last_seen)->diffForHumans() }}</td>
+                    {{--  <span {{ $user->last_seen>=now()->subMinutes(2)?'online':'offline' }}>  --}}
+                    <td class="py-3 px-6 text-center">{{ $user->last_seen >=now()->subMinutes(2)?'online':'offline' }}</td>
                     </span>
                 </tr>
                 @empty
