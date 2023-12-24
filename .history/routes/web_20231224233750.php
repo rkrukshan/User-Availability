@@ -23,4 +23,5 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard',[UserController::class,'index']);
+
 });
