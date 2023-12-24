@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +17,6 @@ class UserActivity
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check())
-        User::where('id',Auth::user()->id)->update(['last_seen'=>now()]);
         return $next($request);
     }
 }

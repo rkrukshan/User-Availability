@@ -18,7 +18,7 @@ class UserActivity
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check())
-        User::where('id',Auth::user()->id)->update(['last_seen'=>now()]);
+        User::wher
         return $next($request);
     }
 }
